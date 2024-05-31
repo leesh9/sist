@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+</head>
+<body>
+    <button type="button" id="bt1">버튼1</button>
+    <button type="button" id="bt2">버튼2</button>
+    <button type="button" id="bt3">버튼3</button>
+    <!-- 공지사항 대화창 -->
+    <div id="notice" title="쌍용교육센터">
+        공지사항<br/>
+        쌍용 교육센터는 IT전문가들을 위한 교육시스템을 기반으로 하는
+        온/오프라인 교육기술 협회인 오경주 기술협회 산하<br/>
+        우수한 교육센터입니다.<br/>
+        <button type="button" id="close_btn">닫기</button>
+    </div>
+
+
+    <!-- ================= -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            let option = {
+                modal: true,
+                autoOpen: false, // 호출되는 즉시 대화 상자 표시 default는 true
+                position:{my:"left top",at:"right bottom", of:"#bt3"},
+                // my: 자신의 위치(left,right,top,bottom,center
+                // at: 기점이 되는 요소상의 위치(left,right,top,bottom,center)
+                // of: 기점이 되는 요소(선택자로 지정)
+                title: "SIST교육센터",
+                resizable: false
+            };
+
+            $("#notice").dialog(option);
+            $("button").button();
+
+            $("#bt1").click(function(){
+                $("#notice").dialog("open");
+            });
+            $("#close_btn").click(function(){
+                $("#notice").dialog("close");
+            });
+        });
+    </script>
+</body>
+</html>

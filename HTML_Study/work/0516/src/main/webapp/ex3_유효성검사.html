@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" name="frm">
+        <label for="s_id">아이디:</label>
+        <input type="text" id="s_id" data-item="아이디" name="m_id"/>
+        <br/>
+
+        <label for="s_pw">비밀번호:</label>
+        <input type="password" id="s_pw" data-item="비밀번호" name="m_pw"/>
+        <br/>
+
+        <label for="s_name">이름:</label>
+        <input type="text" id="s_name" data-item="이름" name="m_name"/>
+        <br/>
+
+        <label for="s_loc">거주지:</label>
+        <input type="text" id="s_loc" data-item="거주지" name="m_loc"/>
+        <br/>
+
+        <button type="button" onclick="test()">확인</button>
+    </form>
+    <script>
+        function test(){
+            //현재 문서에서 첫번째 폼을 가져온다.
+            let f1 = document.forms[0];
+
+            // console.log(f1.name);
+
+            //검색된 폼내부에 있는 모든 하위요소들 가져온다.
+            let sub_ar = f1.elements;
+            console.log(sub_ar.length);
+
+            //마지막에 들어온  button은 유효성 검사에서 제외 시킨다.
+            for(let i=0;i<sub_ar.length-1;i++){
+                //하위요소에 저장된 값 가져오기
+                let str = sub_ar[i].value;
+
+                let msg = sub_ar[i].dataset.item;
+
+                if(str==""||str.length==0){
+                    alert(msg+"값을 입력하세요");
+                    sub_ar[i].value="";//청소
+                    sub_ar[i].focus();
+                    return;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

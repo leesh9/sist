@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>jQuery함수 활용</h1>
+    <div id="wrap">
+        <header>
+            <h2>제목1</h2>
+        </header>
+        <section>
+            <form action="" method="post">
+                <input type="radio" value="public"
+                    name="rbo"/>공개용 &nbsp;
+                <input type="radio" value="private"
+                    name="rbo"/><span>비공개용</span> &nbsp;
+                <input type="radio" value="test"
+                    name="rbo"/><span>테스트용</span> &nbsp;
+
+            </form>
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            // 아이디가 wrap인 요소 안에 존재하는 태그들 중 속성의 값이
+            // radio라고 되어 있는 모든 요소들을 검색하여 변수 ar에 저장하자!
+            let ar = $("#wrap").find(":radio");
+            // console.log(ar.length);//3
+
+            //검색된 결과인 ar의 마지막 radio버튼을 가져와서
+            // 선택이 되도록 설정 해보자!
+            // ar.eq(ar.length-1).prop("checked",true);
+
+            $(ar[ar.length-1]).prop("checked",true);
+            // ar[ar.length-1].checked =true;
+        });
+    </script>
+</body>
+</html>

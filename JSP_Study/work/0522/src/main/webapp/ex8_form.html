@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="ex8" method="get">
+        <select name="s_type" id="s_type">
+            <option value="empno">사번</option>
+            <option value="ename">이름</option>
+            <option value="job">직종</option>
+        </select>
+        <input type="text" name="s_txt" id="s_txt">
+        <button type="button" id="btn">검색</button>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                let data = $("#s_txt");
+                if($(data).val().length<1){
+                    alert("내용을 입력하세요");
+                    data.value="";
+                    data.focus();
+                    return;
+                }
+                document.forms[0].submit();
+            });
+        });
+    </script>
+</body>
+</html>

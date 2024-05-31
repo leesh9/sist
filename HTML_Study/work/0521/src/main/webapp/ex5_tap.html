@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+</head>
+<body>
+    
+    <div id="myTab">
+        <ul>
+            <li><a href="#tab1">탭1</a></li>
+            <li><a href="#tab2">탭2</a></li>
+        </ul>
+        <div id="tab1">탭1의 내용입니다.</div>
+        <div id="tab2">탭2의 내용입니다.</div>
+    </div>
+
+    <button type="button" id="enable">사용 가능</button>
+    <button type="button" id="disable">사용 불가</button>
+    <hr/>
+
+    <button type="button" id="addTab">탭추가</button>
+    <label for="idx">인덱스:</label>
+    <input type="number" id="idx"/>
+    <button type="button" id="delTab">탭삭제</button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#myTab").tabs({
+                // disabled:[1] // 두번째 탭 비활성화
+            });
+
+            $("#disable").click(function(){
+                $("#myTab").tabs("disable",1);//두번째 탭을 비활성화
+            });
+            $("#enable").click(function(){
+                $("#myTab").tabs("enable",1);//두번째 탭을 비활성화
+            });
+            let count = 2;
+            $("#addTab").click(function(){
+                let index = $("#myTab ul li").length +1;
+                let tabContent = "<div id='tab"+index+"'>탭"+index+"의 내용입니다.</div>";
+                let tab = "<li><a href='#tab"+index+"'>탭"+index+"</a></li>";
+
+                //탭의 내용은(tabContent) 아이디가 myTab인 요소에 추가
+                $("#myTab").append(tabContent)
+
+                //탭은(tab)은 아이디가 nyTab인 요소 안에 ul태그에 추가
+                $("#myTab ul").append(tab);
+                $("#myTab").tabs("refresh");//화면갱신
+            });
+
+            $("#delTab").click(function(){
+                // 사용자가 입력한 인덱스 값 가져오기
+                let idx = $("#idx").val();
+                
+            });
+        });
+    </script>
+</body>
+</html>

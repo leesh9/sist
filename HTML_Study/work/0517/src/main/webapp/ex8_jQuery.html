@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+        #box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            margin-top: 20px;
+        }
+    </Style>
+</head>
+<body>
+    
+    <h1>과목</h1>
+    <button id="btn">확인</button>
+
+    <ul>
+        <li>JavaScript</li>
+        <li>ActionScript</li>
+        <li>TyoeScript</li>
+        <li>CoffeeScript</li>
+    </ul>
+    <ul>
+        <li>Java</li>
+        <li>C++</li>
+        <li>파이썬</li>
+        <li>스프링</li>
+    </ul>
+
+    <div id="box"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            // 아이디가 btn 인 요소에게 클릭이벤트 적용
+            $("#btn").bind("click",function(){
+                // li태그들 모두 가져오기
+                // let li_ar = $("li");
+
+                //.innerText ="~~~~"
+                // $("#box").text(li_ar);
+                // $("#box").html(li_ar);
+
+                // jQuery에서 현재문서에있는
+                // li를 만날 때마다 반복 수행하는 문법(each함수)
+                let str = "";
+                $("li").each(function(){
+                    //li 태그를 만날 때마다 수행하는곳
+                    //이때 li태그 자신이 가지고 있는 문자열을 얻어낸다
+                    let msg = this.innerText;
+                    str += msg + "<br/>";
+                });
+
+                $("#box").html(str)
+            });
+        });
+    </script>
+</body>
+</html>

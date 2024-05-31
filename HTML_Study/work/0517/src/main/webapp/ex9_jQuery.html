@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+        #box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            margin-top: 20px;
+        }
+    </Style>
+</head>
+<body>
+    
+    <h1>과목</h1>
+    <button id="btn">확인</button>
+
+    <ul>
+        <li id="t1">JavaScript</li>
+        <li id="t2">ActionScript</li>
+        <li id="t3">TyoeScript</li>
+        <li id="t4">CoffeeScript</li>
+    </ul>
+    <ul>
+        <li id="t5">Java</li>
+        <li id="t6">C++</li>
+        <li id="t7">파이썬</li>
+        <li id="t8">스프링</li>
+    </ul>
+
+    <div id="box"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            // 아이디가 btn 인 요소에게 클릭이벤트 적용
+            $("#btn").bind("click",function(){
+                
+                //현재 문서에서 li 태그들을 모두 가져오기
+                let ar = $("li");
+
+                // 두번째 li요소의 글꼴 색을 빨강색으로 넣는다
+                // ar[i].style.color="#f00"; //스크립트 문법
+                $(ar[1]).css("color","#ff0000");
+
+                // 네번째 li 요소의 글꼴을 파란색으로 변경하자!
+                //$(ar[3]).css("color","#00f");
+                // ar[3].style.color="#0000ff";
+                ar.eq(3).css("color","#0000ff")
+                // jQuery에서 배열의 index로 접근할 때는 eq()사용함!
+
+                // li요소들이 모두 ar에 담겨 있는 상태다. 이때
+                // 원하는 id(t7)를 가진 요소의 index를 알고자 한다.
+                let idx = ar.index($("#t7"));
+                ar.eq(idx).css("color","#0000ff");
+            });
+        });
+    </script>
+</body>
+</html>

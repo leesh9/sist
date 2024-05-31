@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="dept">
+  	<select id="search" parameterType="Map" resultType="homework.DeptVO">
+  		SELECT * FROM dept
+  		<where>
+  			<if test="deptno!=null">
+  				deptno = #{deptno}
+  			</if>
+  			<if test="dname != null">
+  				dname LIKE CONCAT('%',#{dname},'%')
+  			</if>
+  			<if test="loc_code != null">
+  				loc_code = #{loc_code}
+  			</if>
+  		
+  		</where>
+  	</select>
+  </mapper>

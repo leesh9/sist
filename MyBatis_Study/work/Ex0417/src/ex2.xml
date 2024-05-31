@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+<total>
+	<person>
+		<name>홍길동</name>
+		<email>hong@Korea.com</email>
+		<age>22</age>
+	</person>
+	<person>
+		<name>마루치</name>
+		<email>maru@Korea.com</email>
+		<age>22</age>
+	</person>
+</total>

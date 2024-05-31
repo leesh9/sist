@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cBlue{
+            font-size: 20px;
+            font-weight: bold;
+            color: #00f;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="bt">적용</button>
+
+    <div>
+        <p>야호</p>
+        <p>금요일</p>
+        <p>금불</p>
+        첫번째 div
+    </div>
+    <div>
+        <p>그루토</p>
+        <p>몰디브</p>
+        <p>산토리니</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            //무조건 수행하는 곳
+            $("div").eq(0).children().css("color","#f00");
+
+            let check = true;
+            $("#bt").bind("click",function(){
+                // 두번째 div 의 자식들에게 cBlue 라는 클래스를 모두 적용하자
+                if(check){
+                    $("div").eq(1).children().addClass("cBlue");
+                    $(this).text("해제");
+                }else{
+                    $("div").eq(1).children().removeClass("cBlue");
+                    $(this).text("적용");
+                }
+                check =!check;
+            })
+        });
+    </script>
+</body>
+</html>

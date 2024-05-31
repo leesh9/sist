@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+</head>
+<body>
+    <!-- 공지사항 대화창 -->
+    <div id="notice" title="쌍용교육센터">
+        공지사항<br/>
+        쌍용 교육센터는 IT전문가들을 위한 교육시스템을 기반으로 하는
+        온/오프라인 교육기술 협회인 오경주 기술협회 산하<br/>
+        우수한 교육센터입니다.
+    </div>
+
+
+    <!-- ================= -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#notice").dialog();
+        });
+    </script>
+</body>
+</html>

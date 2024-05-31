@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #table{
+            width: 600px;
+            border-collapse: collapse;
+        }
+        #table td{
+            border: 1px solid black;
+        }
+        #table thead td{
+            background: #ececec;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery를 활용한 전체선택</h1>
+    <table id="table">
+        <caption>체크박스 테이블</caption>
+        <colgroup>
+            <col width="30px"/>
+            <col width="*"/>
+        </colgroup>
+        <thead>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" id="all">
+                    <label for="all">전체선택</label>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox" id="ch1" name="chk"/>
+                </td>
+                <td>항목1</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="ch2" name="chk"/>
+                </td>
+                <td>항목2</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="ch3" name="chk"/>
+                </td>
+                <td>항목3</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="ch4" name="chk"/>
+                </td>
+                <td>항목4</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="ch5" name="chk"/>
+                </td>
+                <td>항목5</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="ch6" name="chk"/>
+                </td>
+                <td>항목6</td>
+            </tr>
+            <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+            <script>
+                $(function(){
+
+                    $("#all").change(function(){
+
+                        //tbody에 있는 모든 checkbox들 검색
+                        let ar = $("#table>tbody").find(":checkbox");
+                        
+                        //검색된 모든 체크박스들의 상태를 현재 아이디가
+                        ar.prop("checked",this.checked);
+
+                        //현제 아이디가 all인 체크박스의 체크상태가 true이면
+                        //다음요소의 문자열을 "선택해제"로 변경하고 체크상태가 false이면
+                        //"전제선택"으로 지정하자!
+                        if(this.checked){
+                            $(this).next().text("선택해제");
+                        }else{
+                            $(this).next().text("전체선택");
+                        }
+                        
+                    });
+                    $("#table>tbody").find(":checkbox").click(function(){
+                        
+                        let ar = $("#table>tbody").find(":checkbox");
+                        let checked_ar=$("input[name=chk]:checked");
+                        let allchk =true;
+                        
+                        // for(let i=0;i<ar.length;i++){
+                        //     if(!ar[i].checked){
+                        //         allchk=false;
+                        //         break;
+                        //     }
+                        // }
+
+                        // if(allchk){
+                        //     $("#all").trigger("click");
+                        // }else{
+                        //     $("#all").prop("checked",false);
+                        //     $("#all").next().text("전체선택");
+                        // }
+
+                        if(ar.length==checked_ar.length){
+                            $("#all").trigger("click");
+                        }else{
+                            $("#all").prop("checked",false);
+                            $("#all").next().text("전체선택");
+                        }
+                    });
+                });
+            </script>
+            
+        </tbody>
+    </table>
+</body>
+</html>

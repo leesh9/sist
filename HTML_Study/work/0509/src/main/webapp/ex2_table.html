@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<article>
+			<header>
+				<h2>테이블 연습</h2>
+			</header>
+			<section>
+				<!-- 4행 5열 짜리이면서 너비가 400짜리인 표를 만드시오 -->
+				<table border=1">
+					<thead>
+						<tr>
+							<th>컬럼1</th>
+							<th>컬럼2</th>
+							<th>컬럼3</th>
+							<th>컬럼4</th>
+							<th>컬럼5</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="4">1</td>
+							<td rowspan="3">5</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td colspan="2" rowspan="2">7</td>
+							<td>9</td>
+
+						</tr>
+						<tr>
+							<td>11</td>
+							<td>14</td>
+
+						</tr>
+						<tr>
+							<td>16</td>
+							<td>17</td>
+							<td>18</td>
+							<td>19</td>
+							<td>20</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="5">&nbsp;</td>
+						</tr>
+					</tfoot>
+				</table>
+			</section>
+		</article>
+	</body>
+</html>

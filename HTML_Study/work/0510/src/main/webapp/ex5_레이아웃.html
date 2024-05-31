@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap{
+            width: 1000px;
+            margin: 0px auto;/* 화면 가운데에 배치하기 위해
+                                 상/하는 0px로 지정했고
+                                 좌/우는 auto 즉, 자동화(균등분할) 한다. */
+        background-color: #cdcdcd;
+        }
+        #top{
+            width: 100%;
+            height: 90px;
+            background-color: #d98fdd;
+        }
+        #footer{
+            width: 100%;
+            height: 70px;
+            background-color: #aff729;
+            float: left;
+        }
+        #left{
+            width: 200px;
+            height: 600px;
+            background-color: aquamarine;
+            float: left;
+        }
+        #content{
+            width: 800px;
+            height: 600px;
+            background-color: chocolate;
+            float: left;
+        }
+        .clear{
+            clear: both;/* 이전까지 이뤄졌던 float개념을 여기서 중단 됨 */
+        }
+    </style>
+</head>
+<body>
+    <article id="wrap">
+        <div id="top">
+            <h1>TOP메뉴</h1>
+        </div>
+        <div id="left">
+            <h1>메뉴</h1>
+        </div>
+        <div id="content">
+            <h1>콘텐츠</h1>
+        </div>
+        <div id="footer">
+            <h1>Footer영역</h1>
+        </div>
+        <div class="clear"></div>
+    </article>
+</body>
+</html>

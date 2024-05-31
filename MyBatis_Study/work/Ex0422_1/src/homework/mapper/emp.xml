@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="emp">
+
+  	<select id="get_emp" resultType="pm.vo.EmpVO" parameterType="Map">
+  		SELECT * FROM emp WHERE mgr 
+  		IN (SELECT empno FROM emp WHERE empno=#{empno})
+  	</select>
+  	
+  	
+  </mapper>

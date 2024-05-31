@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #form{
+            width: 280px;
+            height: 90px;
+            padding: 4px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <header>
+            <h2>태이블 행문제</h2>
+        </header>
+        <div id="wrap">
+            <form action="" method="post" id="form" name="frm">
+                <table id="form_table">
+                    <tbody>
+                        <tr>
+                            <td><label for="s_name ">이름:</label></td>
+                            <td><input type="text" id="s_name" data-item="이름" ></td>
+                        </tr>
+                        <tr>
+                            <td><label for="s_num" >연락처:</label></td>
+                            <td><input type="text" id="s_num" data-item="연락처"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button type="button" onclick="exe()">행추가</button></td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+                
+            </form>
+            <table id="table">
+                <colgroup>
+                    <col width="70px"/>
+                    <col width="*"/>
+                    <col width="120px"/>
+                    <col width="80px"/>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>이름</th>
+                        <th>연락처</th>
+                        <th>삭제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </article>
+    
+    <script>
+        let idx=1
+        let table = document.getElementById("table");
+        function exe(){
+            let f1 = document.forms[0];
+            let sub_ar = f1.elements;
+            let tr = document.createElement("tr");
+            tr.style.textAlign ="center";
+            tr.onmouseover = function(){
+                //tr에 마우스가 올라왔을 때 수행하는 곳!
+
+                //table객체에 rowNum이라는 이름으로
+                //현재 행의 번호를 저장한다.
+                table.rowNum = this.rowIndex;
+            }
+
+            let itd = document.createElement("td");
+            itd.innerHTML=idx++;
+            tr.appendChild(itd);
+            // console.log(f1.name);
+            for(let i=0;i<sub_ar.length-1;i++){
+                let str = sub_ar[i].value;
+                let msg = sub_ar[i].dataset.item;
+                console.log(str);
+                if(str==""||str.length==0){
+                    alert(msg+" 값을 입력하세요");
+                    sub_ar[i].value="";
+                    sub_ar[i].focus();
+                    return;
+                }else{
+                    let td = document.createElement("td");
+                    td.innerText= str;
+                    tr.appendChild(td);
+                }
+            }
+            let td4 = document.createElement("td");
+            //버튼 태그를 생성하자!
+            let bt = document.createElement("button")
+            bt.type = "button";
+            bt.id = "bt"+idx
+            bt.innerText="삭제";
+
+            //버튼을 클릭했을 때 처리되는 이벤트
+            bt.onclick = function(){
+                //삭제 버튼을 클릭했을 때 수행하는 곳!
+
+                //table에 저장된 행 번호를 얻어낸다.
+                // 얻어낸 행 번호를 table로부터 삭제!
+                table.deleteRow(table.rowNum);
+            }
+
+            
+            td4.appendChild(bt)
+            // td4.innerHTML= `<button type="button" onclick="del()">삭제</button>`
+            tr.appendChild(td4);
+            tbody = table.children[1];
+            tbody.appendChild(tr);
+        }
+        function del(){
+
+        }
+    </script>
+</body>
+</html>

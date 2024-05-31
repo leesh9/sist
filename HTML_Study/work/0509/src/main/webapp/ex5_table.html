@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			/* 현재문서에서 아이디가 t1인 요소를 만날때 수행(id선택자) */
+			#t1{
+				width: 600;
+				border-collapse: collapse;
+			}
+			/* 아이디가 t1인 요소 안에 모든 th들 또는 
+			아이디가 t1인 요소 안에 있는 모든 td들에게만 적용 */
+			#t1 th, #t1 td{
+				border: 1px solid #000;
+				padding: 6px;
+				
+			}
+			/* 아이디가 t1인 요소의 자식들 중 tfoot의 자식에서 tr, 그리고
+			   그 tr의 자식들중 td에게 적용 (자식선택자) */
+			   #t1>tfoot>tr>td{
+			   	border:none;/*선을 안보이도록 함*/
+			   	text-align:right; /* 우측정렬 */
+			   }
+			   
+			#t1 th{
+				background-color: #00bfff
+			}
+			
+			#t1 caption{
+				text-indent:-1000px;
+				/* height: 0px */
+			}
+		</style>
+	</head>
+	<body>
+		<article>
+			<header>
+				<h2>테이블 연습</h2>
+			</header>
+			<div>
+				<table id="t1">
+					<caption>연습용 테이블</caption>
+					<colgroup>
+						<col width="100"/>
+						<col width="*"/>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>제목</th>
+							<td>연습입니다.</td>
+						</tr>
+						<tr>
+							<th>글쓴이</th>
+							<td>이도</td>
+						</tr>
+						<tr>
+							<th>등록일</th>
+							<td>2024-05-09</td>
+						</tr>
+						<tr>
+							<th>내용</th>
+							<td>여기는 글 내용입니다. 그리고<br/>
+							연습으로글을 써 봅니다. 잘~~써 집니다.
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2">
+								<input type="button" value="확인"/>
+								&nbsp; 
+								<button>뒤로</button>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</article>
+	</body>
+</html>

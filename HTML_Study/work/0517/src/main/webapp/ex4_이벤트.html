@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body onload="exe()">
+    <h1>이벤트 연습</h1>
+
+    <select name="" id="" onchange="changeBg(this)">
+        <option>::선택하세요::</option>
+        <option value="#ff0000">빨강</option>
+        <option value="#00ff00">초록</option>
+        <option value="#0000ff">파랑</option>
+        <option value="#00bfff">하늘색</option>
+    </select>
+    <br />
+    <script>
+        function changeBg(obj){
+            let idx = obj.selectedIndex;//선택된 index 값
+            let value = obj.value;// 선택된 값
+
+            console.log("선택된 index:"+idx+", 값"+value);
+        }
+
+        function exe(){
+            console.log("body onload")
+        }
+
+        window.onload = function(){
+            console.log("window onload")
+        }
+    </script>
+</body>
+</html>

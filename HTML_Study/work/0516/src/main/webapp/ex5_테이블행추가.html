@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table#table{
+            width: 350px;
+            border-collapse: collapse;
+        }
+        table#table th,table#table td{
+            border: 1px solid #dedede;
+            padding: 4px;
+        }
+        table#table caption{
+            text-indent: -9999px;
+            height: 0;
+        }
+        /*table줄 아이디가 table인 요소의 thead안에 있는
+            tr들 중 첫번째 tr만 선택하여 선을 없애고, 오른쪽 맞춤을 설정하자!*/
+        table#table thead>tr:first-child td{
+            text-align: right;
+            border:none ;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <header>
+            <h2>테이블 행 추가</h2>
+        </header>
+        <div>
+            <table id="table">
+                <caption>행추가 테이블</caption>
+                <colgroup>
+                    <col width="70px"/>
+                    <col width="*"/>
+                    <col width="170px"/>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <td colspan="3">
+                            <button type="button"onclick="exe()">행추가</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>번호</th>
+                        <th>이름</th>
+                        <th>연락처</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </article>
+    <script>
+        // function exe(){}
+        let exe = function(){
+            //행추가 버튼을 클릭 할 때 마다 수행하는 곳!!!
+
+            //tr을 만들자!
+            let msg = "<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>";
+            // 생성된 tr을 tbody에 넣어준다.
+            // table의 자식요소인 tbody를 검색하자
+            let table = document.getElementById("table");
+
+            let tbody = table.children[3];
+
+            tbody.innerHTML=msg;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 외부DTD파일은 <!DOCTYPE> 를 선언하지않는다. -->
+<!ELEMENT List (personal)+>
+<!ELEMENT personal (name,c_phone,email?)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT c_phone (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+
+<!ATTLIST person number CDATA #REQUIRED>
+<!ENTITY sist "쌍용 교육센터">

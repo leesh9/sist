@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <article>
+        <header>
+            <h1>datalist 연습</h1>
+        </header>
+    </article>
+    <form action="" method="">
+        <fieldset>
+            <legend>datalist 연습</legend>
+            <label for="ss">포털사이트</label>
+            <input type="url" id="ss" list="s_list" name="url" required/>
+            <!-- required라는 것은 필수 입력 항목임을 의미함! -->
+
+            <br/>
+            <label for="s1">Date:</label>
+            <input type="date" id="s1" name="s1"/><br/>
+
+            <label for="s2">Time:</label>
+            <input type="time" id="s2" name="s2"/><br/>
+
+            <label for="s3">Week:</label>
+            <input type="week" id="s3" name="s3"/><br/>
+
+            <label for="s4">email:</label>
+            <input type="email" id="s4" name="s4"/><br/>
+
+            <label for="s5">Color:</label>
+            <input type="color" id="s5" name="s5"/><br/>
+
+            <button type="submit">보내기</button>
+
+            <datalist id="s_list">
+                <option value="https://www.google.com" label="구글"/>
+                <option value="https://www.naver.com" label="네이버"/>
+                <option value="https://www.daum.com" label="다음(카카오)"/>
+            </datalist>
+        </fieldset>
+    </form>
+</body>
+</html>

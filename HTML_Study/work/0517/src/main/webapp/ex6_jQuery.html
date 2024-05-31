@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+        #box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            margin-top: 20px;
+        }
+    </Style>
+</head>
+<body>
+    <h1>jQuery 클릭 이벤트 연습</h1>
+
+    <button type="button" id="bt1">Red</button>
+    <button type="button" id="bt2">Green</button>
+    <button type="button" id="bt3">Blue</button>
+
+    <div id="box"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            // 이 영역은 현재문서가 준비되면 무조건 수행하는 영역이다.
+            // 그래서 이곳에 각 버튼들의 이벤트를 적용한다.
+            $("#bt1").click(function(){
+                //bt1을 클릭할 떄마다 수행하는 곳!
+                //아이디가 box인 요소의 배경색을 빨강으로 변경!
+                $("#box").css("background-color","#ff0000");
+            });
+            $("#bt2").click(function(){
+                //bt2을 클릭할 떄마다 수행하는 곳!
+                //아이디가 box인 요소의 배경색을 초록으로 변경!
+                $("#box").css("background-color","#00ff00");
+            });
+            // $("#bt3").click(function(){
+            $("#bt3").bind("click",function(){
+                //bt3을 클릭할 떄마다 수행하는 곳!
+                //아이디가 box인 요소의 배경색을 파랑으로 변경!
+                $("#box").css("backgroundColor","#0000ff");
+            });
+        });
+        
+        
+    </script>
+</body>
+</html>

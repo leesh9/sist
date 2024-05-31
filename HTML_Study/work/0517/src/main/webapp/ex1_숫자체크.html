@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 100px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="b_year">태어난 년도:</label>
+        <input type="number" id="b_year" name="bYear">
+        <button type="button" onclick="exe(this.form)">확인</button>
+    </form>
+    <br/>
+    <div id="box">
+
+    </div>
+    <script>
+        function checkNumber(str){
+            let value = true;
+            for(let i=0;i<str.length;i++){
+                //str i번째 있는 문자의 코드값을 가져온다.
+                let code = str.charCodeAt(i);
+                // let ch = str.charAt(i);
+                // console.log(ch+"/"+code);
+                if(code<48|| code>57){
+                    //숫자가 아니라면 value의 값을 false로 변경하고
+                    // 더 이상 반복문을 수행할 필요가 없다.
+                    value = false;
+                    break;
+                }
+            }
+            return value;
+        }
+
+        function exe(ff){
+            //폼객체를 통해 폼 내부의 하위요소들을 name으로 접근할 수 있다.
+            let b_year = ff.bYear.value;
+            // console.log(b_year);
+
+            let chk = checkNumber(b_year);
+            //숫자일 경우에만 수행하도록 한다.
+            if(chk){
+                let now = new Date();//현재날짜
+
+                //나이를 구하기 위해 현재 날짜에서 년도만 추출하자!
+                let c_year = now.getFullYear();// 2024
+                // console.log(c_year);
+
+                //나이구하기
+                let age = c_year - b_year;
+
+                if(age < 19){
+                    document
+                    .getElementById("box")
+                    .innerHTML = "미성년자";
+                }else{
+                    document
+                    .getElementById("box")
+                    .innerHTML = age+"세이므로 성인이시네요";
+                }
+            }else{
+                alert("문자 또는 공백 등이\r\n포함되어서는 안됩니다.");
+            }
+        }
+    </script>
+</body>
+</html>

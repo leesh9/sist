@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="mem">
+  	
+  	<!-- 이름을 인자로 받아서 검색하는 기능 : serach_name -->
+  	<select id="search_name" parameterType="String" resultType="pm.MemVO">
+  		SELECT * FROM member_t WHERE mname like CONCAT('%', #{m_name},'%')
+  	</select>
+  	<!-- 연락처와 이메일을 인자로 받아서 검색하는 기능 : search -->
+  	<select id="search" parameterType="Map" resultType="pm.MemVO">
+  		SELECT * FROM member_t 
+  		<where>
+	  		<trim prefixOverrides="And">
+	  			<if test="key1 != null">
+	  				email LIKE CONCAT('%',#{key1},'%')
+	  			</if>
+	  			<if test="key2 != null">
+	  				And phone LIKE CONCAT('%',#{key2},'%'
+	  			</if>
+	  		</trim>
+  		</where>
+  	</select>
+  </mapper>

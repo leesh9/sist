@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+    </header>
+    <style>
+        #t1{
+            width: 500;
+            border-collapse: collapse;
+        }
+        
+        #t1 td,#t1 th{
+            
+            border: 1px solid;
+        }
+        #t1>tfoot td{
+            text-align: right;
+        }
+        #c_red{
+            color:#f00;
+            font-weight: bold;
+        }
+        .num{/* 클래스 선택자 */
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <body>
+        <article>
+            <header>
+                <h2>선택자 연습</h2>
+            </header>
+            <div>
+                <table id="t1">
+                    <caption>CSS선택자 연습 테이블</caption>
+                    <colgroup>
+                        <col width="40px"/>
+                        <col width="130px"/>
+                        <col width="120px"/>
+                        <col width="*"/>
+                    </colgroup>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">자료제공: 쌍용다방</td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>요소(태그)선택자</td>
+                            <td>태그명</td>
+                            <td>div{}, article{}</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>자식 선택자</td>
+                            <td>>활용</td>
+                            <td>div>ul{}, #menu>article{}</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>자손선택자</td>
+                            <td>공백</td>
+                            <td>div&nbsp;a{}, <article>$nbsp;div{}</article></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>아이디선택자</td>
+                            <td>#활용</td>
+                            <td>#t1{}, div#test1{}</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>클래스</td>
+                            <td>.활용</td>
+                            <td>div.txt{}, .w500{}</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <td>번호</td>
+                            <td>명칭</td>
+                            <td>활용법</td>
+                            <td id="c_red">예문</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </article>
+    </body>
+</html>

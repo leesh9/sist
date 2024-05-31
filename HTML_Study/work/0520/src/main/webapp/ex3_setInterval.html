@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="init()">
+    <form action="" method="get">
+        <fieldset>
+            <legend>Progress연습</legend>
+
+            <label for="s1">Progress:</label>
+            <progress value="0.05" max="1.0" id="s1" name="s1">
+                브라우저가 progress를 지원하지 않습니다.
+            </progress>
+            <output>5</output>%
+        </fieldset>
+    </form>
+
+    <script>
+        let inter = null;//인터벌 객체를 저장할 변수
+        //인터벌 객체란?
+        // 지정한 시간만큼 간격을 두고 지정한 함수를 지속적으로 호출한다.
+        function init(){
+            //0.5초 간격으로 pGo()라는 함수를 호출하는 인터벌 객체 생성
+            inter = setInterval("pGo()", 500);
+        }
+
+        function pGo(){
+            // console.log("^^");
+
+            //현재 문서에서 아이디가 s1인 progress를 검색하자
+            let pp = document.getElementById("s1");
+
+            //pp의 값(value)을 얻어내어 1보다 크거나 같다면
+            //인터벌을 소멸시킨다.
+            if(pp.value>=1){
+                clearInterval(inter);
+                alert("완료!");
+                return;
+            }
+
+            //pp의 값을 5%증가시키자!
+            pp.value += 0.05;
+
+            //현재문서에서 폼안에 filedset안에 output태그 검색
+            let output = document.querySelector("form fieldset output");
+
+            // 0.10과 같은 값을 10으로 만들기 위해 100을 곱했다. 하지만
+            // 소수점이 생기는 부분을 정수화 시키기 위해 parseInt라는
+            // 내장함수를 활용했다.
+            output.innerHTML = parseInt(pp.value*100);
+        }
+    </script>
+</body>
+</html>

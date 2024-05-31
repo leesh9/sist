@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #comp{
+            width: 300px;
+            padding: 5px;
+        }
+        #t1{
+            width: 600px;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        #t1 th, #t1 td{
+            padding: 4px;
+            border: 1px solid #dedede;
+            border-left: none;
+        }
+        #t1 th:last-child, #t1 td:last-child{
+            border-right: none;
+        }
+        .w100{
+            width: 80px;
+
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="">
+        <fieldset>
+            <legend>비동기식 통신</legend>
+            <label for="comp">제조회사</label>
+            <input type="text" id="comp"/>
+            <button type="button" onclick="exe()">확인</button>
+        </fieldset>
+    </form>
+    <div id="content">
+        <table id="t1">
+            <colgroup>
+                <col width="120px"/>
+                <col width="*"/>
+                <col width="60px"/>
+                <col width="150px"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>이미지</th>
+                    <th>제품명</th>
+                    <th>가격</th>
+                    <th>등록일</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        function exe(){
+            //사용자가 입력한 제조회사명 받아오기
+            let comp = $("#comp").val();
+            let type = "Eyeliner"
+            if(comp.trim().length>0){
+                //비동기식 통신
+                $.ajax({
+                    url: "http://makeup-api.herokuapp.com/api/v1/products.json",
+                    data: {"brand":comp,"product_type":type},//"brand="+comp+"&product_type="+type,
+                    type: "get",
+                    dataType: "json"
+                }).done(function(res){
+                    console.log(res);
+                    let msg = "";
+                    for(let i=0;i<res.length; i++){
+                        msg += "<tr>";
+                        msg += "<td><img src='"+res[i].image_link+"' class='w80' /></td>";
+                        msg += "<td><a href='"+res[i].product_link+"'>"+res[i].name+"</a></td>"
+                        msg += "<td>"+res[i].price+"$</td>"
+                        msg += "<td>"+res[i].updated_at+"</td>"
+                        msg += "</tr>";
+                    }//for의 끝
+                    $("#t1>tbody").html(msg);
+                }).fail(function(err){
+                    //요청시 오류가 발생 했을떄 수행하는 곳
+                    
+                });
+            }
+        }
+    </script>
+</body>
+</html>

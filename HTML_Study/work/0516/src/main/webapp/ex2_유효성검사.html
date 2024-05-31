@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <label for="s_age">나이</label>
+        <input type="text" id="s_age" name="m_age"/>
+        <br/>
+
+        <button type="button" onclick="test()">확인</button>
+    </form>
+
+    <script>
+        function test(){
+            // 현재문서에서 아이디가 s_age인 요소 (태그) 를 검색
+            let s_age = document.getElementById("s_age");
+            
+            
+            //사용자가 입력한 값을 얻어낸다.
+            let age = s_age.value.trim();
+            
+            if(age==""||age.length==0){
+                alert("값을 입력하세요");
+                s_age.value="";
+                s_age.focus();
+            }else if(isNaN(age)){
+                //숫자가 아닌경우
+                alert("숫자를 입력하세요");
+                s_age.value="";
+                s_age.focus();
+            }else if(age>40){
+                alert("어르신");
+            }else if(age>=30){
+                alert("30대");
+            }else if(age>=20){
+                alert("20대");
+            }else{
+                alert("어린이");
+            }
+        }
+    </script>
+</body>
+</html>

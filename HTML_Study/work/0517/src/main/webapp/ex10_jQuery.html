@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="test">여기는 H1</h1>
+    <p>p요소1</p>
+    <p>p요소2</p>
+    <p>p요소3</p>
+    <span>이것은 span요소</span>
+    <p class="test">p요소4</p>
+    <p>p요소5</p>
+    <div>여기는 DIV</div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            // test라는 클래스를 가진 요소와 span요소, 그리고
+            // div요소들을 모두 모아서 그 안에 있는 문자열들을 수집 하고자 한다.
+            // let ar = $(".test,span,div");
+
+            let str = "";
+            // for(let i=0; i<ar.length;i++){
+            //     str += ar.eq(i).text()+"\r\n";
+            // }
+            $(".test,span,div").each(function(){
+                str += $(this).text()+"\r\n";
+            });
+            alert(str);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: auto;
+        }
+        @media all and (min-width: 800px){
+            nav{
+                height: 40px;
+                font-weight: bold;
+            }
+            nav ul{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+            }
+            nav ul li{
+                display: inline-block;
+                margin-right: 20px;
+            }
+            
+            nav{
+                border: 2px solid #f00;
+                width: 100%;
+            }
+            #header,#content{
+                display: inline-block;
+                width: 60%;
+                border: 2px solid #0f0;
+
+            }
+            aside{
+                display: inline-block;
+                width: 20%;
+                border: 2px solid #00f;
+                position: absolute;
+                top: 10px;
+            }
+        }
+
+        @media all and (min-width: 400px) and (max-width: 800px){
+            nav{
+                border: 2px solid #f00;
+                width: 80%;
+                margin: auto;
+                display: flex;
+                justify-content: space-around;/*균등분할*/
+            }
+            nav ul{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+            }
+            #header, #content{
+                display: inline-block;
+                width: 596px;
+                border: 2px solid #0f0;
+            }
+            aside{
+                display: inline-block;
+                width: 596px;
+                border: 2px solid #00f;
+                background-color: #898989;
+                color: #ddd;
+            }
+        }
+
+        @media all and (max-width: 400px){
+            nav{
+                width: 316px;
+            }
+            nav ul{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+            }
+            #header, #content{
+                display: inline-block;
+                width: 316px;
+                border: 2px solid #0f0;
+            }
+            aside{
+                display: inline-block;
+                width: 316px;
+                border: 2px solid #00f;
+                background-color: #898989;
+                color: #ddd;
+            }
+
+            nav ul li{
+                width: 316px;
+                text-align: center;
+                background-color: #00bfff;
+                border-bottom: 1px solid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <nav>
+                <ul>
+                    <li><a href="">Menu1</a></li>
+                    <li><a href="">Menu2</a></li>
+                    <li><a href="">Menu3</a></li>
+                    <li><a href="">Menu4</a></li>
+                    <li><a href="">Menu5</a></li>
+                    <li><a href="">Menu6</a></li>
+                </ul>
+            </nav>
+        </header>
+        <article id="content">
+            <header>
+                <h2>Media Queries</h2>
+            </header>
+            <p>
+                CSS Media Query는 예를 들어 "뷰포트가 480 픽셀보다 넓다."<br/>
+                라고 여러분이 지정한 규칙에 브라우저 및 장치 환경이 일치하는 경우에만 <br/>
+                CSS를 적용할 수 있는 방법을 제공합니다.미디어 쿼리는 뷰포트의 크기에 <br/>
+                따라 서로 다른 레이아웃을 생성할 수 있기 때문에 반응형 웹 디자인의 <br/>
+                중요한 부분입니다. 하지만 사용자가 실행 중인 환경에 대해서 다른 것들을 <br/>
+                감지하는 데에도 사용할 수 있습니다. 예를 들면 사용자가 마우스가 아닌 <br/>
+                터치스크린을 사용하는지와 같이 실행 중인 환경에 대한 여러 내용들을 <br/>
+                탐지하는 데도 사용할 수 있습니다. 이번 단원에서는 먼저 미디어 쿼리에 <br/>
+                사용된 구문에 대해 배우고, 이어 해당 구문을 가공의 예제에서 사용하여 <br/>
+                간단한 디자인이 어떻게 반응할 수 있는지 살펴보겠습니다.
+            </p>
+        </article>
+        <aside>
+            <p>sideMenu1</p>
+            <p>sideMenu2</p>
+            <p>sideMenu3</p>
+        </aside>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="get">
+        <label for="v1">값1:</label>
+        <input type="text" id="v1" name="u_v1"/>
+        <button type="button" onclick="exe()">확인</button>
+    </form>
+    <script>
+        function exe(){
+            let v1 = document.getElementById("v1")
+            let str = v1.value.trim();
+            if(str==""||str.length==0){
+                alert("값을 입력해주세요");
+                v1.value="";
+                v1.focus;
+            }else{
+                //스플릿을 활용한 방법
+                v1.value = v1.value.split(" ").join("");
+
+                // //반복문을 사용한 방법
+                // let result="";
+                // for(let i=0;i<str.length;i++){
+                //     if(!(str[i]==" ")){
+                //         result+=str[i];
+                //     }
+                // }
+                // v1.value=result;
+            }
+        }
+    </script>
+</body>
+</html>

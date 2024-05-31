@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<article>
+		<header>
+			<h1>서블릿 인자 보내기</h1>
+		</header>
+		<section>
+			<form action="ex4" method="post">
+				<label for="u_name">이름:</label>
+				<input type="text" id="u_name" name="m_name"/>
+				<br/>
+				<label for="u_hobby">취미:</label>
+				<input type="checkbox" id="u_hobby" name="m_hobby" value="독서"/><span>독서</span>
+				&nbsp;&nbsp;
+				<input type="checkbox" id="u_hobby2" name="m_hobby" value="음악감상"/><span>음악감상</span>
+				&nbsp;&nbsp;
+				<input type="checkbox" id="u_hobby3" name="m_hobby" value="클래식기타"/><span>클래식기타</span>
+				&nbsp;&nbsp;
+				<input type="checkbox" id="u_hobby4" name="m_hobby" value="영화감상"/><span>영화감상</span>
+				&nbsp;&nbsp;
+				<input type="checkbox" id="u_hobby" name="m_hobby" value="배틀그라운드"/><span>배틀그라운드</span>
+				&nbsp;&nbsp;
+				<br/>
+				<button type="button" onclick="sendData()">보내기</button>
+			</form>
+		</section>
+	</article>
+	<script type="text/javascript">
+		function sendData() {
+			let u_name = document.getElementById("u_name");
+			
+			let s_name = u_name.value.trim();
+
+			if(s_name.length<1){
+				alert("이름을 입력하세요");
+				u_name.value="";
+				u_name.focus();
+				return;
+			}
+			document.forms[0].submit();
+		}
+	</script>
+</body>
+</html>

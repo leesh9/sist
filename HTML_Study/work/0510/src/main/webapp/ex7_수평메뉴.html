@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #header{
+            height: 80px;
+            background-color: #2e2e2e;
+            color: #000;
+        }
+        #nav{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font: 22px Arial;
+            line-height: 80px;
+        }
+        #nav>li{
+            display: inline-block;
+            margin-left: 20px;
+        }
+        /* li태그 안에 있는 a태그를 선택하여 글꼴의 흰색으로 지정하고, 밑줄을 없애자*/
+        #nav>li>a{
+            color: #fff;
+            text-decoration: none;
+        }
+        #nav>li>a:hover{
+            color: aqua;
+        }
+        .selected{
+            color: #ff8000 !important;
+            font-weight: bold;
+            border-bottom: 4px solid #ff8000;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <header id="header">
+            <ul id="nav">
+                <li><a href="">home</a></li>
+                <li><a href="" class="selected">products</a></li>
+                <li><a href="">e-Bit</a></li>
+                <li><a href="">Board</a></li>
+                <li><a href="">About</a></li>
+            </ul>
+        </header>
+    </article>
+</body>
+</html>

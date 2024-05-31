@@ -1,0 +1,39 @@
+@charset "UTF-8";
+#header{
+            height: 44px;
+            background-color: #2e2e2e;
+    }
+
+    #nav{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font: 14px sans-serif;
+        line-height: 44px;
+        text-align: center;
+    }
+    #nav>li{
+        display: inline-block;
+        margin-right: 30px;
+    }
+    /*l i태그 안에 존재하는 a태그의 글꼴색을 회색(#eee)으로 그리고
+        밑줄은 없앤다. 마우스가 올라가면 살짝 어두운 색(#e2e2e2)로 지정!*/
+    #nav>li>a{
+        text-decoration: none;
+        color: #eee;
+    }
+
+    #nav>li>a:hover{
+        text-decoration: none;
+        color: #cdcdcd;
+    }
+
+    #apple{
+        background-image: url(./images/icon_apple.svg);
+        width: 48px;
+        background-size: 16px 44px;
+        position: absolute; /*절대적 위치 설정*/
+        top: 9px;
+        text-align: center;
+        background-repeat: no-repeat;
+    }  

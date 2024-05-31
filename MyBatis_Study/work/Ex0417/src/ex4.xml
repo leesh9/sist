@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE students [
+	<!ELEMENT students (student+)>
+	<!ELEMENT student (name,tel+,addr?)>
+	<!ELEMENT name (#PCDATA)>
+	<!ELEMENT tel (#PCDATA)>
+	<!ELEMENT addr (#PCDATA)>
+]>
+
+<students>
+	<student>
+		<name>일지매</name>
+		<tel>010-5478-8523</tel>
+		<addr>서울</addr>
+	</student>
+	<student>
+		<name>마루치</name>
+		<tel>010-6862-7956</tel>
+		<addr>서울</addr>
+	</student>
+</students>

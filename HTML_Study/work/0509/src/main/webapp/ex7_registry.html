@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<article>
+			<header>
+				<h2>폼 연습</h2>
+			</header>
+		</article>
+		<div>
+			<form action="" method="get" enctype="multiprt/form-data">
+				<!--  input에서 type을 생략하면 기본이 type="text"이다 -->
+				<input type="text" name="s1"/>
+				<br/>
+				
+				<select id="s2" name="s2">
+					<option value="seoul">서울</option>
+					<option value="incheon">인천</option>
+					<option value="kyounggi">경기</option>
+					<option selected="selected">::선택::</option>
+				</select>
+				<br/>
+				<!-- 체크박스들은 하나의 그룹을 구분하는것이 name으로 구분한다. 그래서 하나인 그룹은 name이 같아야 한다.
+					 (이렇게이름이 같은 인자들은 서버에서 하나의 배열로 인식되어 받는다. -->
+				<input type="checkbox" id="ch1" name="hobby" value="1">
+				<label for="ch1">음악감상</label>
+				&nbsp;&nbsp;
+				<input type="checkbox" id="ch2" name="hobby" value="2">
+				<label for="ch2">영화감상</label>
+				&nbsp;&nbsp;
+				<input type="checkbox" id="ch3" name="hobby" value="3">
+				<label for="ch3">독서</label>
+				&nbsp;&nbsp;
+				<input type="checkbox" id="ch4" name="hobby" value="4">
+				<label for="ch4">배틀그라운드</label>
+				<br/>
+				
+				<select name="phone">
+					<option value="010">010</option>
+					<option value="017">017</option>
+					<option value="019">019</option>
+				</select>
+				<label>-</label>
+				<input type="text" name="phone">
+				<label>-</label>
+				<input type="text" name="phone">
+				<br/>
+				<!-- 
+					라디오 버튼은 그룹이 이루어 져야 하며
+					이 또한 name으로 그룹을 이룬다.
+				 -->
+				<input type="radio" id="ra1" name="gender" value="1">
+				<label for="ra1">여자</label>
+				&nbsp;&nbsp;
+				<input type="radio" id="ra2" name="gender" value="2">
+				<label for="ra2">남자</label>
+				<br/>
+				
+				<!-- file타입은 다른 컴포넌트와 달리 value에 특정값을 지정하지 못한다.
+					 이유는 보안상 이유로 막아두었다.
+					 이렇게 파일이 첨부가 되는 form은 반드시 encType을 multipart/form-data로 지정해야 한다. -->
+				<label for="ff">파일첨부</label>
+				<input type="file" id="ff" name="file"/>
+				<br/>
+				<textarea rows="5" cols="50" id="ta" name="desc"></textarea>
+				<br/>
+				<button type="submit">보내기</button>
+				<button type="reset">재입력</button>
+				<br/>
+			</form>
+		</div>
+	</body>
+</html>

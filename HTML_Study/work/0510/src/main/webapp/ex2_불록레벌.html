@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+        <style>
+            div,a,article{
+                width: 100px;
+                height: 100px;
+                border: 5px solid #7a00ff;
+                color: ff0000;
+            }
+        </style>
+    </header>
+    <body>
+        <h1>블록레벨연습</h1>
+        <!-- 블록레벨은 한 행에서 자신만 표현되며, 너비와 높이를
+        조정할 수 있다 -->
+        <div>div영역</div>
+        <a href="">a태그</a>
+        <article>article 영역</article>
+        <hr/>
+        a태그는 인라인 레벨이며, 크기를 지정할수없다
+        <br>
+        <h1>인라인 레벨</h1>
+        인라인레벨은 안에 존재하는 내용의 길이만큼만 너비를 차지하게 된다.
+        <br/>
+        그 외 크기조정을 할 수 없다<br/>
+        인라인레벨 안에 다른 인라인 레벨의 요소를 가질 수 있지만<br/>
+        인라인레벨 안에 블록레벨을 가져서는 안된다.
+
+        <span>span요소1</span>
+        <span>span요소2</span>
+        <span>
+            <a href="">a태그1</a>
+            <a href="">a태그2</a>
+        </span>
+    </body>
+</html>

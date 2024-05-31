@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style>
+	#s_id,#s_pw{
+		width: 106px;
+		padding: 6px
+		
+	}
+	
+	#s_id2, #s_pw2{
+		width: 106px;
+		padding: 6px;
+		padding-left: 10px;
+		border: 1px solid #676767;
+		border-radius: 10px;
+	}
+	
+	#d2>table>caption{
+		text-indent:-9999px;
+	}
+	#d2 th{
+		text-align: right;
+	}
+	#d2 tfoot>tr>td{
+		text-align: center;
+	}
+	
+
+	</style>
+</head>
+<body>
+	<article>
+		<header>
+			<h2>폼 연습</h2>
+		</header>
+		<div id="d1">
+			<!--
+				폼태그의 속성들중 action과 method는 반드시 이해해야 한다.
+				- action : 폼의 모든 정보를 전달하고자 하는 서버의 경로
+				- method : 전송방식(get 또는 post)
+				
+				폼태그 안에 있는 각 컴포넌트들의 속성
+				-id: 현재 문서에서 유일한 값을 가지며 해당 컴포넌트를
+					 접근하기 위해 사용함
+					 
+				-name: 무엇보다 중요한 것은 서버로 전달하는 인자의 이름이다. 
+			-->
+			
+			<form action="ex/test.jsp" method="post">
+				<label for="s_id">아이디:</label>
+				<input type="text" id="s_id" name="m_id" placeholder="user id..."/>
+				<br/>
+				<label for="s_pw">비밀번호:</label>
+				<input type="password"id="s_pw" name="m_pw" placeholder="password..."/>
+				<br/>
+				<button type="button">로그인</button>
+			</form>
+		</div>
+		<div id="d2">
+			<form action="ex/test.jsp" method="post">
+				<table>
+					<caption>로그인 폼 테이블</caption>
+					<tbody>
+						<tr>
+							<th><label for="s_id2">아이디:</label></th>
+							<td><input type="text" id="s_id2" name="m_id" placeholder="user id..."/></td>
+						</tr>
+						<tr>
+							<td><label for="s_pw2">비밀번호:</label></td>
+							<td>
+								<input type="text" id="s_pw2" name="m_pw" placeholder="password...">
+							</td>
+						</tr>
+						
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2">
+								<button type="button">로그인</button>
+								<button type="button">회원가입</button>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</form>
+		</div>
+	</article>
+</body>
+</html>

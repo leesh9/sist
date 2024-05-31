@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body>article>div>div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            /*바깥쪽 여백들 중 아래쪽만 10px 주자*/
+            margin-bottom: 10px;
+        }
+        div.box{/* div 태그들 중 클래스가 box인 요소들만 적용 */
+            background-image: url(./images/cap.PNG);
+            background-repeat: repeat-x;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <header>
+            <h2>박스</h2>
+        </header>
+        <div>
+            <div id="box1" class="box">BOX1</div>
+            <div id="box1" class="box">BOX2</div>
+            <div id="box1" class="box">BOX3</div>
+        </div>
+    </article>
+</body>
+</html>

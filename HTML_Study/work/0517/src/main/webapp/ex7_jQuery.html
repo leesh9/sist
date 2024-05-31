@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <button type="button" id="bt">CSS적용</button>
+    <p></p>
+
+    <p>p요소1</p>
+    <p>p요소2</p>
+    <p>p요소3</p>
+    <a href="">a요소1</a>
+    <p>p요소4</p>
+    <p>p요소5</p>
+    <p>p요소6</p>
+    <p>p요소7</p>
+    <a href="">a요소2</a>
+    <p>p요소8</p>
+    <p>p요소9</p>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script>
+        //$(document).ready(function(){
+        $(function(){
+            $("#bt").bind("click",function(){
+                //$("p").css("color","#ff0000");
+
+                let ar = $("p")
+                for(let i=0;i<ar.length;i++){
+                    if(i%2==0){
+                        ar[i].style.color="#ff0000"// 자바스크립트 문법
+
+                        // ar[i].css("color","ff0000");
+                        // ar[i]라는 스크립트 문법에
+                        //.css("color","ff0000")라는 jQuery문법을
+                        // 한 문장에서 혼합해서 사용하여 오류가 발생함
+                        // 그래서 다음과 같이 변경해야 가능하다.
+
+                        // $(ar[i]).css("color","#ff0000");
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

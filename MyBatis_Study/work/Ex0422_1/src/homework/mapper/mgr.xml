@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="mgr">
+  
+  <resultMap type="pm.vo.MgrVO" id="m1">
+  	<id property="empno" column="empno"/>
+  	<collection property="list" ofType="homework.vo.EmpVO" select="emp.get_emp" column="{empno=empno,deptno=deptno}"/>
+  </resultMap>
+  
+  <select id="all" resultMap="m1" >
+  	SELECT * FROM emp 
+  		WHERE empno IN (SELECT distinct mgr from emp)
+  </select>
+  
+  </mapper>

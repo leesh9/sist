@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#box{
+		width: 350px;
+		height: 400px;
+		border: 1px solid #00f;
+	}
+</style>
+</head>
+<body>
+	<button type="button" onclick="ex(2)">2단</button>
+	<button type="button" onclick="ex(3)">3단</button>
+	<button type="button" onclick="ex(4)">4단</button>
+	<button type="button" onclick="ex(5)">5단</button>
+	<button type="button" onclick="ex(6)">6단</button>
+	<button type="button" onclick="ex(7)">7단</button>
+	<button type="button" onclick="ex(8)">8단</button>
+	<button type="button" onclick="ex(9)">9단</button>
+	<br/><br/>
+	<div id="box"></div>	
+	<script>
+		function ex(dan){
+			// alert(dan);// 경고창
+			console.log(dan); //개발자 모드의 콘솔창
+
+			//현재문서에 존재하는 요소(태그)를 검색하는 방법
+			//id로 검색 또는 name으로 검색하는 법
+			//아이디가 box인 요소를 검색하여 변수 box에 저장하자
+			let box = document.getElementById("box");
+			let msg = "\r\n<b>"+dan+"단</b><br/>"
+			msg+="------------------------------<br/>"
+			for(let i=1;i<10;i++){
+				msg += dan+"*"+i+"="+(dan*i)+"<br/>";
+			}
+			box.innerHTML=msg;
+		}
+	</script>
+</body>
+</html>
