@@ -1,0 +1,56 @@
+package mybatis.dao;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import mybatis.service.FactoryService;
+import mybatis.vo.BbsVO;
+
+public class BbsDAO {
+
+	public static BbsVO[] getList(String bname, int begin,
+			int end) {
+		BbsVO[] ar = null;
+		
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		HashMap<String, String> map = new HashMap<>();
+		map.put("bname", bname);
+		map.put("begin", String.valueOf(begin));
+		map.put("end", String.valueOf(end));
+		
+		List<BbsVO> list = ss.selectList("bbs.list", map);
+		if(list != null && list.size() > 0) {
+			ar = new BbsVO[list.size()];
+			list.toArray(ar);//list가 가지는 모든 요소들을
+						//ar이라는 배열에 복사한다.
+		}
+		ss.close();
+		return ar;
+	}
+	//원글을 저장하는 기능
+	public static int add(String subject, String writer, 
+			String content, String fname, String oname, 
+			String ip, String bname) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("subject", subject);
+		map.put("writer", writer);
+		map.put("content", content);
+		map.put("file_name", fname);
+		map.put("ori_name", oname);
+		map.put("ip", ip);
+		map.put("bname", bname);
+		
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int cnt = ss.insert("bbs.add", map);
+		if(cnt > 0)
+			ss.commit();
+		else
+			ss.rollback();
+		
+		ss.close();
+		return cnt;
+	}
+}
