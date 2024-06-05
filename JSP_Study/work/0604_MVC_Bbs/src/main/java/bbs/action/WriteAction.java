@@ -27,8 +27,7 @@ public class WriteAction implements Action {
 		//  2) write.jsp에서 [저장]버튼을 클릭했을 때 post방식으로 오게된다. 
 		
 		String enc_type = request.getContentType();
-		System.out.println("type:"+enc_type);
-		
+//		System.out.println("type:"+enc_type);
 		if(enc_type == null) {
 			viewPath = "/jsp/"+bname+"/write.jsp";
 		}else if(enc_type.startsWith("multipart")) {
@@ -40,6 +39,8 @@ public class WriteAction implements Action {
 			//위의 결과는 null이다.
 			//반드시 cos.jar라는 라이브러리에 있는 MultipartRequest를
 			// 이용해야 한다.
+			
+			
 			try {
 				//첨부된 파일이 저장될 곳을 절대경로로 만들어야 한다.
 				ServletContext application = 
@@ -80,7 +81,8 @@ public class WriteAction implements Action {
 				
 				int cnt = BbsDAO.add(title, writer, content,
 						fname, oname, ip, bname2);
-			
+				System.out.println(bname2);
+				viewPath="Controller?type=list&bname="+bname2;
 			}catch(Exception e) {
 				e.printStackTrace();
 			}

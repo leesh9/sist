@@ -9,7 +9,14 @@ import mybatis.service.FactoryService;
 import mybatis.vo.BbsVO;
 
 public class BbsDAO {
-
+	
+	public static int getCount(String bname) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int cnt = ss.selectOne("bbs.count",bname);
+		ss.close();
+		return cnt;
+	}
+	
 	public static BbsVO[] getList(String bname, int begin,
 			int end) {
 		BbsVO[] ar = null;
@@ -30,7 +37,21 @@ public class BbsDAO {
 		ss.close();
 		return ar;
 	}
+	
+	public static BbsVO view(int idx) {
+		BbsVO bvo = null;
+
+
+		
+		SqlSession ss = FactoryService.getFactory().openSession();
+		bvo = ss.selectOne("bbs.view", idx);
+		ss.close();
+		return bvo;
+
+	}
+	
 	//원글을 저장하는 기능
+
 	public static int add(String subject, String writer, 
 			String content, String fname, String oname, 
 			String ip, String bname) {

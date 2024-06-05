@@ -11,6 +11,12 @@
   		</collection>
   	</resultMap>
   	
+  	<!-- 해당 게시물의 전체게시물 수를 반환 -->
+  	<select id="count" resultType="int" parameterType="String">
+  		SELECT COUNT(*) FROM bbs_t
+  		WHERE status =0 AND bname = #{bname}
+  	</select>
+  	
   	<!-- 게시물 목록을 만들기 위한 select -->
   	<select id="list" resultMap="map1">
   		SELECT * FROM(SELECT @RN:=@RN+1 AS rnum, a.* FROM(
@@ -20,7 +26,16 @@
   		WHERE c.rnum BETWEEN #{begin} AND #{end}
   	</select>
   	
+	<select id="view" resultType="mybatis.vo.BbsVO" parameterType="int">
+		SELECT * FROM bbs_t WHERE b_idx = #{idx} AND status = 0
+	</select>
+
+
+
+
+
   	<!-- 원글저장 -->
+
   	<insert id="add" parameterType="Map">
   		INSERT INTO bbs_t( subject, writer, content, file_name, ori_name, pwd, write_date, ip, hit, bname, status)
   		VALUES(#{subject},#{writer},#{content}, #{file_name}, #{ori_name}, #{pwd}, NOW(), #{ip}, 0, #{bname}, 0)

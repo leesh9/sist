@@ -1,3 +1,4 @@
+<%@page import="bbs.util.Paging"%>
 <%@page import="mybatis.vo.BbsVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -77,7 +78,7 @@
 	}
 		
 </style>
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 <div id="wrap">
@@ -105,9 +106,10 @@
 %>	
 		<tr>
 			<td><%=bvo.getB_idx() %></td>
-			<td><%=bvo.getSubject() %></td>
+			<td><a href="Controller?type=view&bname=bbs&idx=<%=bvo.getB_idx() %>"><%=bvo.getSubject() %></a></td>
 			<td><%=bvo.getWriter() %></td>
 			<td><%=bvo.getWrite_date() %></td>
+
 			<td><%=bvo.getHit() %></td>
 		</tr>
 <%
@@ -126,24 +128,48 @@
                       <tr>
                           <td colspan="4">
                               <ol class="paging">
-                                  
-               
-
-<li><a href="#">이전으로</a></li>
-
-	<li class="now">1</li>
-         
-	<li><a href="#">2</a></li>
-
-
- 
-		<li><a href="#">다음으로</a></li>
-	
+<%
+	//페이징을 위해 request에 page라는 이름으로 저장한 객체를 얻어낸다.
+	Object object = request.getAttribute("page");
+	Paging pvo = null;
+	if(object!=null){
+		pvo=(Paging)object;
+		if(pvo.getStartPage()<pvo.getPagePerBlock()){
+%>
+	<li class="disable">&lt;</li>	
+<%	
+		}else{	
+%>
+	<li><a href="javascript:location.href='Controller?type=list&bname=bbs&cpage=<%=pvo.getStartPage()-1%>'">&lt;</a></li>
+<%
+		}
+		for(int i=pvo.getStartPage(); i<= pvo.getEndPage();i++){
+			if(i==pvo.getNowPage()){
+%>
+	<li class="now"><%=i%></li>
+<%
+			}else{
+%>        
+	<li><a href="javascript:location.href='Controller?type=list&bname=bbs&cpage=<%=i%>'"><%=i%></a></li>
+<%
+			}
+		}//for의 끝
+		if(pvo.getEndPage()==pvo.getTotalPage()){
+%>
+		<li class="disable">&gt;</li>
+<%
+		}else{
+%>
+	<li><a href="javascript:location.href='Controller?type=list&bname=bbs&cpage=<%=pvo.getEndPage()+1%>'">&gt;</a></li>	
+<%
+		}
+	}
+%>
                               </ol>
                           </td>
 						  <td>
 							<input type="button" value="글쓰기"
-			onclick="javascript:location.href='Controller?type=write'"/>
+			onclick="javascript:location.href='Controller?type=write&bname=bbs'"/>
 						  </td>
                       </tr>
                   </tfoot>

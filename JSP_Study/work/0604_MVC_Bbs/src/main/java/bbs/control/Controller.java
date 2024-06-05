@@ -124,7 +124,7 @@ public class Controller extends HttpServlet {
 		// 원하는 객체를 얻어낼 수 있다.
 		Action action = actionMap.get(type);
 		 
-		String viewPath = action.execute(request, response); 
+		String viewPath = action.execute(request, response);  
 		
 		//forward로 이동~~~~~!
 		RequestDispatcher disp = request.getRequestDispatcher(viewPath);
