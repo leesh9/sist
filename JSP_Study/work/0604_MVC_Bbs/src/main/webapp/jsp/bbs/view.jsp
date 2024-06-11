@@ -66,12 +66,12 @@
 
 				<tr>
 					<th>첨부파일:</th>
-					<td><a href="Controller?type=download&fname=<%=bvo.getOrg_file_name()%>">
+					<td><a href="javascript:down('<%=bvo.getFile_name()%>')">
 						<%=bvo.getFile_name()%>
 					</a></td>
 
 
-
+ 
 
 				</tr>
 
@@ -89,9 +89,9 @@
 				
 				<tr>
 					<td colspan="2">
-						<input type="button" value="수정"/>
+						<input type="button" value="수정" onclick="javascript:location.href='Controller?type=edit&b_idx=<%=bvo.getB_idx()%>&bname=${param.bname}&cPage=${param.cPage}'"/>
 						<input type="button" value="삭제"/>
-						<input type="button" value="목록"/>
+						<input type="button" value="목록" onclick="javascript:location.href='Controller?type=list&b_idx=<%=bvo.getB_idx()%>&bname=${param.bname}&cPage=${param.cPage}'"/>
 					</td>
 				</tr>
 			</tbody>
