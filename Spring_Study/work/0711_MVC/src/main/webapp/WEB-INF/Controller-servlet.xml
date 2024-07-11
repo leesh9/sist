@@ -12,10 +12,12 @@
 	
 	<bean class="ex1.action.Test2Action" name="/t2.inc"></bean>
 
+	<bean class="ex1.action.Test3Action" name="/t3.inc"/>
+
 	<!-- 뷰리조버 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="suffix" value=".jsp"/> <!-- 확장자 지정 -->
-        <property name="prefix" value="/WEB-INF/jsp/"/> <!-- 위치 지정 -->
+        <property name="prefix" value="jsp/"/> <!-- 위치 지정 -->
     </bean>
     
 </beans>
