@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ <!-- DI(Dependence Injection) : 의존성 주입 -->
+ <!-- TestVO t1 = new TestVO();
+ 	  t1.setMsg("DI연습입니다.");
+ -->
+	<bean class="ex1.action.Test1Action" name="/t1.inc"></bean>
+	
+	<bean class="ex1.action.Test2Action" name="/t2.inc"></bean>
+
+	<!-- 뷰리조버 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="suffix" value=".jsp"/> <!-- 확장자 지정 -->
+        <property name="prefix" value="/WEB-INF/jsp/"/> <!-- 위치 지정 -->
+    </bean>
+    
+</beans>

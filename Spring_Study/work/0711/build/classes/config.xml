@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ <!-- DI(Dependence Injection) : 의존성 주입 -->
+ <!-- TestVO t1 = new TestVO();
+ 	  t1.setMsg("DI연습입니다.");
+ -->
+ 	<bean id="t1" class="ex1.vo.TestVO">
+ 		<property name="msg">
+ 			<value>DI연습입니다.</value>
+ 		</property>
+ 	</bean>
+ 	<bean id="t2" class="ex1.vo.Test2VO">
+ 		<property name="str">
+ 			<value>안녕하세요</value>
+ 		</property>
+ 		<property name="value">
+ 			<value>2024</value>
+ 		</property>
+ 	</bean>
+ 	<bean id="t3" class="ex1.vo.Test3VO">
+ 		<constructor-arg  value="마루치" index="0"/>
+ 		<constructor-arg  value="20" index="1"/>
+ 		<constructor-arg  value="true" index="2"/>
+ 	</bean>
+ 	
+ 	<!-- Test4VO를 참조하는 Test4VO를 생성 -->
+ 	<bean id="t4" class="ex1.vo.Test4VO">
+ 		<property name="test" ref="t2"/>
+ 	</bean>
+</beans>
