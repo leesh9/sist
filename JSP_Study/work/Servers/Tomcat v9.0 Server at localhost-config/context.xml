@@ -26,7 +26,4 @@
     <!--
     <Manager pathname="" />
     -->
-    <ResourceLink name="jdbc/mysql" global="jdbc/mysql" 
-    type="javax.sql.DataSource"/>
-    
 </Context>
