@@ -14,9 +14,7 @@
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
   limitations under the License.
--->
-<!-- The contents of this file will be loaded for each web application -->
-<Context>
+--><!-- The contents of this file will be loaded for each web application --><Context>
 
     <!-- Default set of monitored resources. If one of these changes, the    -->
     <!-- web application will be reloaded.                                   -->
@@ -28,8 +26,5 @@
     <!--
     <Manager pathname="" />
     -->
-
-    <ResourceLink name="jdbc/mysql" global="jdbc/mysql" 
-    type="javax.sql.DataSource"/>
-
+<ResourceLink global="jdbc/mysql" name="jdbc/mysql" type="javax.sql.DataSource"/>
 </Context>
