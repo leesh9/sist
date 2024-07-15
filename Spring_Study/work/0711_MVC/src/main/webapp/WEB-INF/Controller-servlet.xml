@@ -11,8 +11,9 @@
 	<bean class="ex1.action.Test1Action" name="/t1.inc"></bean>
 	
 	<bean class="ex1.action.Test2Action" name="/t2.inc"></bean>
+	
+	<bean class="ex1.action.Test4Action"></bean>
 
-	<bean class="ex1.action.Test3Action" name="/t3.inc"/>
 
 	<!-- 뷰리조버 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

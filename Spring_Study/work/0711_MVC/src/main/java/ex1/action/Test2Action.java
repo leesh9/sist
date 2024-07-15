@@ -24,5 +24,4 @@ public class Test2Action implements Controller {
 		mv.setViewName("ex2");// WEB-INF/jsp/ex2.jsp
 		return mv;
 	}
-
 }

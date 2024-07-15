@@ -17,6 +17,7 @@ public class Test3Action implements Controller{
 		}else{
 			mv.addObject("result", "사용자");
 		}
+
 		mv.setViewName("ex3");
 		
 		return mv;
