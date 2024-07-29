@@ -1,44 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
-	
-	<!-- dbcp라이브러리가 가지고 있는 BasicDataSource를 생성 -->
-   <bean class="org.apache.commons.dbcp.BasicDataSource" 
-   destroy-method="close" id="ds">
-      <!-- BasicDataSource객체 안에 멤버변수들 초기화 -->
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+   <import resource="classpath:/mybatis/mybatis-context.xml"/>
+   <!-- Root Context: defines shared resources visible to all other web components -->
+   <context:annotation-config/>
+   
+   <context:property-placeholder location="classpath:mybatis/props/jdbc.properties"/>
+   
+   <!-- DataSource객체 -->
+   <bean class="org.apache.commons.dbcp.BasicDataSource" id="ds" destroy-method="close">
       <property name="driverClassName" 
-         value="com.mysql.cj.jdbc.Driver"/>
-      <property name="url"
-         value="jdbc:mysql://localhost:3306/my_db"/>
-      <property name="username" value="test"/>
-      <property name="password" value="1111"/>
-      
-      <!-- 최대 동시 커넥션 수 -->
-      <property name="maxActive" value="20"/>
-      
-      <!-- 커넥션 반납시 최대 커넥션 유지 수 -->
-      <property name="maxIdle" value="10"/>
-      
-      <!-- 커넥션 반납시 최소 커넥션 유지 수 -->
-      <property name="minIdle" value="5"/>
+         value="${jdbc.driver}"/>
+      <property name="url" value="${jdbc.url}"/>
+       <property name="username" value="${jdbc.user}"/>
+       <property name="password" value="${jdbc.pwd}"/>
+         
+       <!-- 최대 동시 커넥션 수 -->
+       <property name="maxActive" value="${jdbc.maxActive}"/>
+        
+       <!-- 커넥션 반납시 최대 커넥션 유지 수 -->
+       <property name="maxIdle" value="${jdbc.maxIdle}"/>
+         
+       <!-- 커넥션 반납시 최소 커넥션 유지 수 -->
+       <property name="minIdle" value="${jdbc.minIdle}"/>
    </bean>
    
-   <!-- mybatis spring에 있는  Factory 생성 이때 위의 ds를 참조해야 함 -->
-   <bean id="factory" 
-   class="org.mybatis.spring.SqlSessionFactoryBean">
+   <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="factory">
       <property name="dataSource" ref="ds"/>
-      
-      <!-- 맴퍼들의 위치설정 -->
       <property name="mapperLocations"
-         value="classpath:mybatis/mapper/*.xml"/>
+         value="classpath:mybatis/mapper/**/*.xml"/>
    </bean>
    
-   <!-- 위의 factory를 통해 SqlSession생성 -->
-   <bean id="sqlSession" 
-   class="org.mybatis.spring.SqlSessionTemplate">
+   <bean class="org.mybatis.spring.SqlSessionTemplate" id="ss">
       <constructor-arg ref="factory"/>
    </bean>
    

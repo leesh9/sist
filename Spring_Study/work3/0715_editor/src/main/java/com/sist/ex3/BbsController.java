@@ -58,8 +58,7 @@ public class BbsController {
 			//파일이 있는 경우
 			// 파일을 저장할 위치를 절대경로로 만들자!
 			String realpath = application.getRealPath("/resources/editor_img");
-		
-		
+			
 			try {
 				f.transferTo(new File(realpath,f.getOriginalFilename()));
 				map.put("fname", f.getOriginalFilename());

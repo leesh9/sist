@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Ex0726SecureApplication<ex0726_secure>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.sist.ex0726_secure.Ex0726SecureApplication",
+            "projectName": "ex0726_secure",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
