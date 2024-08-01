@@ -145,7 +145,7 @@
 		let frm = new FormData();
 		
 		//보내고자 하는 자원을 폼에 파라미터 값으로 등록!(추가)
-		frm.append("upload",file);//폼 안에 "upload"라는 이름으로
+		frm.append("file",file);//폼 안에 "upload"라는 이름으로
 					//전달하고자 하는 파일이 등록되었다.
 		frm.append("bname", "bbs");
 		$.ajax({
@@ -166,7 +166,7 @@
 			
 			//또 다른 방법
 			$("#content").summernote(
-				"editor.insertImage",data.url+"/"+fname);
+				"editor.insertImage",data.url+"/"+data.fname);
 			
 		});
 	}

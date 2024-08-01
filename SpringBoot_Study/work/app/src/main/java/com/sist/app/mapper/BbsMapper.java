@@ -12,4 +12,6 @@ public interface BbsMapper {
     int count(String searchType, String searchValue, String bname);
     List<BbsVO> list(String searchType, String searchValue, String bname, int begin, int end);
     void write(BbsVO vo);
+    BbsVO view(String b_idx);
+    void hit(String b_idx);
 }

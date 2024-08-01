@@ -34,4 +34,12 @@ public class BbsService {
     public void write(BbsVO vo) {
         mapper.write(vo);
     }
+    
+    public BbsVO view(String b_idx) {
+        return mapper.view(b_idx);
+    }
+
+    public void hit(String b_idx) {
+        mapper.hit(b_idx);
+    }
 }
