@@ -8,6 +8,7 @@
 		<version>3.3.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	<packaging>war</packaging>
 	<groupId>com.sist</groupId>
 	<artifactId>ex0725_db</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -76,9 +77,16 @@
 			<version>3.0.3</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency> 
+		<!-- <dependency> 
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency> -->
+
+		<!-- 패키징을 war로 할 때 내장 tomcat이 아니라 이미 존재하는 tomcat 서버를 사용하기 위해 필요함 -->
+		<dependency> 
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
 

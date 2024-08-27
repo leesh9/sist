@@ -1,0 +1,14 @@
+{
+	"configurations": [
+		{
+			"type": "java",
+			"name": "Spring Boot-JwtMemApplication<jwt_mem>",
+			"request": "launch",
+			"cwd": "${workspaceFolder}",
+			"mainClass": "com.sist.jwt_mem.JwtMemApplication",
+			"projectName": "jwt_mem",
+			"args": "",
+			"envFile": "${workspaceFolder}/.env"
+		}
+	]
+}

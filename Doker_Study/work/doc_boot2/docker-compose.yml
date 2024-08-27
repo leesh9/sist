@@ -1,0 +1,35 @@
+services:
+  database:
+    container_name: mysql80
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: my_db
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: 1111
+    ports:
+      - 3307:3306
+    command: ["--character-set-server=utf8mb4","--collation-server=utf8mb4_unicode_ci"]
+    networks:
+      - my-net1
+  application:
+    container_name: docker-boot3
+    restart: on-failure 
+    # on-failure : exit code가 0이 아닌 경우 재시작
+    # no : 재시작 하지 않음
+    # always : 항상 재시작
+    # unless-stopped : 컨테이너를 수동으로 중지하지 않는 경우 항상 재시작
+    image: lokciginer/doc_boot2:0.1
+    ports:
+      - 8080:8080
+    networks:
+      - my-net1
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/my_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 1111
+    depends_on:
+      - database
+
+networks:
+  my-net1:
+

@@ -1,0 +1,12 @@
+spring:
+    profiles:
+        active: dev
+        include: secret
+    jpa:
+        hibernate:
+            ddl-auto: create
+        properties:
+            hibernate:
+                show-sql: true
+                format-sql: true
+                use_sql-comments: true

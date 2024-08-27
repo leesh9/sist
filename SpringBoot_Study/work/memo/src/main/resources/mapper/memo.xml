@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sist.memo.mapper.MemoMapper">
+        <!-- 게시물 개수 -->
+    <select id="count" resultType="int" parameterType="Map">
+        SELECT COUNT(*) FROM memo_t
+        <where>
+            <if test="searchType != null and searchValue != null">
+                <choose>
+                    <when test="searchType == 0">
+                        AND content LIKE CONCAT('%', #{searchValue}, '%')
+                    </when>
+                    <when test="searchType == 1">
+                        AND writer LIKE CONCAT('%', #{searchValue}, '%')
+                    </when>
+                    <when test="searchType == 2">
+                        AND write_date LIKE CONCAT('%', #{searchValue}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+    </select>
+
+    <!-- 게시물 목록 -->
+    <select id="list" resultType="com.sist.memo.vo.MemoVO" parameterType="Map">
+        SELECT * FROM (
+            SELECT @RN:=@RN+1 as rnum, a.* 
+            FROM(
+                SELECT * FROM memo_t
+                <where>
+                    <if test="searchType != null and searchValue != null">
+                        <choose>
+                            <when test="searchType == 0">
+                                AND content LIKE CONCAT('%', #{searchValue}, '%')
+                            </when>
+                            <when test="searchType == 1">
+                                AND writer LIKE CONCAT('%', #{searchValue}, '%')
+                            </when>
+                            <when test="searchType == 2">
+                                AND write_date LIKE CONCAT('%', #{searchValue}, '%')
+                            </when>
+                        </choose>
+                    </if>
+                </where>
+                ORDER BY m_idx DESC
+            ) a, (SELECT @RN:=0) b
+        ) c WHERE c.rnum BETWEEN #{begin} AND #{end}
+    </select>
+
+    <!-- 기본키를 인자로 받아 특정 메모객체 반환 -->
+    <select id="get_memo" resultType="com.sist.memo.vo.MemoVO" parameterType="String">
+        SELECT *
+        FROM memo_t
+        WHERE m_idx = #{m_idx}
+    </select>
+
+    <insert id="write" parameterType="com.sist.memo.vo.MemoVO">
+        INSERT INTO memo_t(content, writer, ip, write_date) VALUES(#{content}, #{writer}, #{ip}, now())
+    </insert>
+
+    <!-- 메모글 수정하기 -->
+    <update id="edit" parameterType="com.sist.memo.vo.MemoVO">
+        UPDATE memo_t
+        SET content=#{content}, writer=#{writer}, write_date=now()
+        WHERE m_idx=#{m_idx}
+    </update>
+</mapper>

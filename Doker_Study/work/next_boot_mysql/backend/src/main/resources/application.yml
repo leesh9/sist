@@ -1,0 +1,14 @@
+server:
+  port: 8080
+Spring:
+    output:
+        ansi:
+            enabled: always
+    datasource:
+        url: jdbc:mysql://localhost:3306/my_db
+        username: test
+        password: 1111
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+mapper-locations: classpath:mapper/**/*.xml
+
