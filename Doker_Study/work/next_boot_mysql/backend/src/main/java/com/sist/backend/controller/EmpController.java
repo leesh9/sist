@@ -9,9 +9,10 @@ import com.sist.backend.service.EmpService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-
-@RestController
+@RestController()
+@RequestMapping("/api")
 public class EmpController {
     @Autowired
     private EmpService empService;
