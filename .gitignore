@@ -81,3 +81,5 @@ local.properties
 
 # 각종 설치파일
 util/
+
+db/
